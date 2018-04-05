@@ -20,10 +20,10 @@ def all(username=None):
     donors = Donation.select().join(Donor).where(Donor.name == username)
 
     if username is None:
-        return render_template('donations.jinja2', errors=errors, donations=donations)
+        return render_template('donations.jinja2', donations=donations)
     elif Donor.DoesNotExist:
         errors.append( "The usename "+username+" does not exist")
-        return render_template('donations.jinja2', errors=errors, donors=donors)
+        return render_template('donations.jinja2', donors=donors)
     else:
         return render_template('donations.jinja2', errors=errors)
 
