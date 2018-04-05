@@ -15,15 +15,19 @@ def home():
 @app.route('/donations/')
 @app.route('/donations/<username>')
 def all(username=None):
-    if not username:
-        donations = Donation.select()
-        return render_template('donations.jinja2', donations=donations)
+    errors = []
+    donations = Donation.select()
+    donors = Donation.select().join(Donor).where(Donor.name == username)
+
+    if username is None:
+        return render_template('donations.jinja2', errors=errors, donations=donations)
+    elif Donor.DoesNotExist:
+        errors.append( "The usename "+username+" does not exist")
+        return render_template('donations.jinja2', errors=errors, donors=donors)
     else:
-        donors = Donation.select().join(Donor).where(Donor.name == username)
-        return render_template('donor.jinja2', donors=donors)
+        return render_template('donations.jinja2', errors=errors)
 
-
-print(os.environ['APP_SETTINGS'])
+#print(os.environ['APP_SETTINGS'])
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 6738))

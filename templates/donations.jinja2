@@ -7,5 +7,11 @@
     {% for donation in donations %}
         <li><b>{{ donation.donor.name }}</b>: {{ donation.value }}</li>
     {% endfor %}
+    {% for donation in donors %}
+        <li><b>{{ donation.donor.name }}</b>: {{ donation.value }}</li>
+    {% endfor %}
+    {% for error in errors %}
+        <b>{{ error }}</b>
+    {% endfor %}
 </ul>
 {% endblock content %}
