@@ -13,14 +13,14 @@ def home():
     return redirect(url_for('all'))
 
 @app.route('/donations/')
-def all():
-    donations = Donation.select()
-    return render_template('donations.jinja2', donations=donations)
-
 @app.route('/donations/<username>')
-def user_data(username):
-    donors = Donation.select().join(Donor).where(Donor.name == username)
-    return render_template('donor.jinja2', donors=donors)
+def all(username=None):
+    if not username:
+        donations = Donation.select()
+        return render_template('donations.jinja2', donations=donations)
+    else:
+        donors = Donation.select().join(Donor).where(Donor.name == username)
+        return render_template('donor.jinja2', donors=donors)
 
 
 print(os.environ['APP_SETTINGS'])
