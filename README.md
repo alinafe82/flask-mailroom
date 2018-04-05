@@ -14,11 +14,10 @@ $ python main.py
 All commands to be run from inside the repository directory.
 ```
 $ git init                # Only necessary if this is not already a git repository
-$ heroku create flask-mailroom
-$ git push heroku master  # If you have any changes or files to add, commit them before you push. 
-$ git push heroku master  
-$ git remote add pro git@heroku.com:flask-mailroom.git
-$ git remote add stage git@heroku.com:flask-mailroom.git
+$ heroku create flask-mailroom-stage
+$ heroku create flask-mailroom-pro
+$ git remote add pro git@heroku.com:flask-mailroom-pro.git
+$ git remote add stage git@heroku.com:flask-mailroom-stage.git
 $ git push stage master
 $ git push pro master
 
