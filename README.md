@@ -21,14 +21,17 @@ $ git remote add stage git@heroku.com:flask-mailroom-stage.git
 $ git push stage master
 $ git push pro master
 
-$ heroku addons:create heroku-postgresql:hobby-dev
+$ heroku addons:create heroku-postgresql:hobby-dev --app flask-mailroom-pro
+$ heroku addons:create heroku-postgresql:hobby-dev --app flask-mailroom-stage
 $ heroku config:set APP_SETTINGS=config.StagingConfig --remote stage
 $ heroku config:set APP_SETTINGS=config.ProductionConfig --remote pro
-$ heroku run python setup.py --remote pro
 $ heroku run python setup.py --remote stage
-$ heroku open
+$ heroku run python setup.py --remote pro
+$ heroku open --remote stage
+$ heroku open --remote pro
 $ http://flask-mailroom-pro.herokuapp.com/donations/
 $ http://flask-mailroom-stage.herokuapp.com/donations/
-$ heroku run python main.py --app flask-mailroom
+$ heroku run python main.py --app flask-mailroom-stage
+$ heroku run python main.py --app flask-mailroom-pro
 
 ```
