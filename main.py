@@ -21,11 +21,11 @@ def all(username=None):
 
     if username is None:
         return render_template('donations.jinja2', donations=donations)
-    elif Donor.DoesNotExist:
+    elif len(donors) == 0:
         errors.append( "The usename "+username+" does not exist")
-        return render_template('donations.jinja2', donors=donors)
-    else:
         return render_template('donations.jinja2', errors=errors)
+    else:
+        return render_template('donations.jinja2', donors=donors)
 
 #print(os.environ['APP_SETTINGS'])
 
