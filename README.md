@@ -69,6 +69,11 @@ remote: Verifying deploy... done.
 To https://git.heroku.com/flask-mailroom.git
  * [new branch]      master -> master
 
+(env) [alinafe.matenda@MBP-C02PRS2JFVH5-2 flask-mailroom (master)]$ git remote add pro git@heroku.com:flask-mailroom.git
+(env) [alinafe.matenda@MBP-C02PRS2JFVH5-2 flask-mailroom (master)]$ git remote add stage git@heroku.com:flask-mailroom.git
+(env) [alinafe.matenda@MBP-C02PRS2JFVH5-2 flask-mailroom (master)]$ git push stage master
+(env) [alinafe.matenda@MBP-C02PRS2JFVH5-2 flask-mailroom (master)]$ git push pro master
+
 $ heroku addons:create heroku-postgresql:hobby-dev
 Database has been created and is available
  ! This database is empty. If upgrading, you can transfer
