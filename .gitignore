@@ -1,4 +1,6 @@
 __pycache__/
 .idea/
-env/
+env
 .env
+.pytest_cache
+.coverage
