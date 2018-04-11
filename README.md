@@ -27,8 +27,8 @@ $ heroku config:set APP_SETTINGS=config.StagingConfig --remote stage
 $ heroku config:set APP_SETTINGS=config.ProductionConfig --remote pro
 $ heroku run python setup.py --remote stage
 $ heroku run python setup.py --remote pro
-$ heroku open --remote stage
-$ heroku open --remote pro
+$ heroku open --app flask-mailroom-stage
+$ heroku open --app flask-mailroom-pro
 $ http://flask-mailroom-pro.herokuapp.com/donations/
 $ http://flask-mailroom-stage.herokuapp.com/donations/
 $ heroku run python main.py --app flask-mailroom-stage
